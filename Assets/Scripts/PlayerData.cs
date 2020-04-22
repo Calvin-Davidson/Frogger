@@ -23,6 +23,8 @@ public class PlayerData : MonoBehaviour
         if (score > bestscore)
         {
             bestscore = score;
+            PlayerPrefs.SetFloat("HighScore", score);
+            PlayerPrefs.Save();
             mapgen.CreateNewMap();
         }
     }
