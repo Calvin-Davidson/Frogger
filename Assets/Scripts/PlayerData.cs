@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerData : MonoBehaviour
 {
@@ -27,10 +29,17 @@ public class PlayerData : MonoBehaviour
             PlayerPrefs.Save();
             mapgen.CreateNewMap();
         }
+        UpdateUI();
     }
 
     public void removeScore(int amount)
     {
         score -= amount;
+    }
+
+    public void UpdateUI()
+    {
+        GameObject.Find("HighScoreTekst").GetComponent<TextMeshProUGUI>().text = "HighScore: " + PlayerPrefs.GetFloat("HighScore");
+        GameObject.Find("ScoreTekst").GetComponent<TextMeshProUGUI>().text = "Score: " + score;
     }
 }

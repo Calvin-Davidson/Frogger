@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class Movement : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private GameObject MovementCheckerBack;
     [SerializeField] private GameObject MovementCheckerRight;
     [SerializeField] private GameObject MovementCheckerLeft;
+    
     private void Start()
     {
         playerData = this.gameObject.GetComponent<PlayerData>();
@@ -26,7 +29,7 @@ public class Movement : MonoBehaviour
             {
                 move(new Vector3(0,0,speed));
                 playerData.addScore(1);
-                camera.transform.position = camera.transform.position + new Vector3(0, 0, speed);   
+                //camera.transform.position = camera.transform.position + new Vector3(0, 0, speed);   
             }
         }
 
@@ -40,10 +43,10 @@ public class Movement : MonoBehaviour
             if (MovementCheckerBack.GetComponent<AllowMovementChecker>().getCanMove())
             {
                 move(new Vector3(0, 0, -speed));
-                if (!(camera.transform.position.z <= -35))
-                {
-                    camera.transform.position = camera.transform.position + new Vector3(0, 0, -speed);
-                }
+                // if (!(camera.transform.position.z <= -35))
+                // {
+                //     camera.transform.position = camera.transform.position + new Vector3(0, 0, -speed);
+                // }
 
                 playerData.removeScore(1);
             }
