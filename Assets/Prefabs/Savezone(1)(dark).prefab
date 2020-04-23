@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7843119241607435307}
   - component: {fileID: 7843119241607435308}
   m_Layer: 0
-  m_Name: Savezone(1)
+  m_Name: Savezone(1)(dark)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -954,6 +954,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
+    - target: {fileID: 6853618297556428515, guid: 29f78bb04860416428f7b1f8524d305c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstakel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29f78bb04860416428f7b1f8524d305c, type: 3}
 --- !u!4 &7696913862017049121 stripped
@@ -1298,6 +1303,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691874811527019593, guid: abebb6b8a96f3d242ace2c8223e1197a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstakel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223901027436269545, guid: abebb6b8a96f3d242ace2c8223e1197a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstakel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762553233789121811, guid: abebb6b8a96f3d242ace2c8223e1197a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstakel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6045263162907122960, guid: abebb6b8a96f3d242ace2c8223e1197a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstakel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abebb6b8a96f3d242ace2c8223e1197a, type: 3}

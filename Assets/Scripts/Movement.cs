@@ -8,6 +8,10 @@ public class Movement : MonoBehaviour
     public PlayerData playerData = new PlayerData();
     public Camera camera;
 
+    [SerializeField] private GameObject MovementCheckerFront;
+    [SerializeField] private GameObject MovementCheckerBack;
+    [SerializeField] private GameObject MovementCheckerRight;
+    [SerializeField] private GameObject MovementCheckerLeft;
     private void Start()
     {
         playerData = this.gameObject.GetComponent<PlayerData>();
@@ -18,30 +22,44 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            this.transform.position = this.transform.position + new Vector3(0, 0, speed);
-            playerData.addScore(1);
-            camera.transform.position = camera.transform.position + new Vector3(0, 0, speed);
+            if (MovementCheckerFront.GetComponent<AllowMovementChecker>().getCanMove())
+            {
+                move(new Vector3(0,0,speed));
+                playerData.addScore(1);
+                camera.transform.position = camera.transform.position + new Vector3(0, 0, speed);   
+            }
         }
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (this.transform.position.z <= -10)
             {
                 return;
             }
-            this.transform.position = this.transform.position + new Vector3(0, 0, -speed);
-            if (!(camera.transform.position.z <= -35))
+
+            if (MovementCheckerBack.GetComponent<AllowMovementChecker>().getCanMove())
             {
-                camera.transform.position = camera.transform.position + new Vector3(0, 0, -speed);
+                move(new Vector3(0, 0, -speed));
+                if (!(camera.transform.position.z <= -35))
+                {
+                    camera.transform.position = camera.transform.position + new Vector3(0, 0, -speed);
+                }
+
+                playerData.removeScore(1);
             }
-            playerData.removeScore(1);
         }
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             if (this.transform.position.x <= -10)
             {
                 return;
             }
-            this.transform.position = this.transform.position + new Vector3(-speed, 0, 0);
+
+            if (MovementCheckerLeft.GetComponent<AllowMovementChecker>().getCanMove())
+            {
+                move(new Vector3(-speed, 0, 0));
+            }
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -49,7 +67,16 @@ public class Movement : MonoBehaviour
             {
                 return;
             }
-            this.transform.position = this.transform.position + new Vector3(speed, 0, 0);
+
+            if (MovementCheckerRight.GetComponent<AllowMovementChecker>().getCanMove())
+            {
+                move(new Vector3(speed, 0, 0));
+            }
         }
+    }
+
+    public void move(Vector3 dir)
+    {
+        transform.position = transform.position + dir;
     }
 }

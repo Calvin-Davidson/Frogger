@@ -120,6 +120,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock2
       objectReference: {fileID: 0}
+    - target: {fileID: 1506205050835814896, guid: 844097c54fd6c7549842a4b3e3491d33,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstakel
+      objectReference: {fileID: 0}
     - target: {fileID: 7382096741467496424, guid: 844097c54fd6c7549842a4b3e3491d33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -184,6 +189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654242801030657347, guid: 844097c54fd6c7549842a4b3e3491d33,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstakel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844097c54fd6c7549842a4b3e3491d33, type: 3}
@@ -1240,6 +1250,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1506205050835814896, guid: 844097c54fd6c7549842a4b3e3491d33,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstakel
+      objectReference: {fileID: 0}
     - target: {fileID: 7382096741467496424, guid: 844097c54fd6c7549842a4b3e3491d33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1304,6 +1319,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246624409454403339, guid: 844097c54fd6c7549842a4b3e3491d33,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstakel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654242801030657347, guid: 844097c54fd6c7549842a4b3e3491d33,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstakel
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070687067664022116, guid: 844097c54fd6c7549842a4b3e3491d33,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.856986
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070687067664022116, guid: 844097c54fd6c7549842a4b3e3491d33,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.856986
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070687067664022116, guid: 844097c54fd6c7549842a4b3e3491d33,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.856986
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844097c54fd6c7549842a4b3e3491d33, type: 3}

@@ -15,7 +15,7 @@ public class VehicleMovement : MonoBehaviour
     public direction Direction;
     private void Update()
     {
-        if (Direction == direction.left)
+        if (Direction == direction.right)
         {
             if ((transform.position.x >= 100 || transform.position.x <= -100))
             {
@@ -24,7 +24,7 @@ public class VehicleMovement : MonoBehaviour
             transform.position = transform.position + new Vector3(speed * Time.deltaTime, 0, 0);            
         }
 
-        if (Direction == direction.right)
+        if (Direction == direction.left)
         {
             if ((transform.position.x >= 100 || transform.position.x <= -100))
             {
