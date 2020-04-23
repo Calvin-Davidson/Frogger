@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -14,7 +12,10 @@ public class Movement : MonoBehaviour
     [SerializeField] private GameObject MovementCheckerBack;
     [SerializeField] private GameObject MovementCheckerRight;
     [SerializeField] private GameObject MovementCheckerLeft;
-    
+
+    [SerializeField] private GameObject PlayerModel;
+    public bool canmove = true;
+
     private void Start()
     {
         playerData = this.gameObject.GetComponent<PlayerData>();
@@ -27,9 +28,10 @@ public class Movement : MonoBehaviour
         {
             if (MovementCheckerFront.GetComponent<AllowMovementChecker>().getCanMove())
             {
-                move(new Vector3(0,0,speed));
+                this.transform.rotation = new Quaternion(0, 0, 0, 0);
+                move(new Vector3(0, 0, speed));
                 playerData.addScore(1);
-                //camera.transform.position = camera.transform.position + new Vector3(0, 0, speed);   
+                //camera.transform.position = camera.transform.position + new Vector3(0, 0, speed);
             }
         }
 
@@ -39,9 +41,9 @@ public class Movement : MonoBehaviour
             {
                 return;
             }
-
             if (MovementCheckerBack.GetComponent<AllowMovementChecker>().getCanMove())
             {
+                this.transform.rotation = new Quaternion(0, -180, 0, 0);
                 move(new Vector3(0, 0, -speed));
                 // if (!(camera.transform.position.z <= -35))
                 // {
@@ -58,7 +60,7 @@ public class Movement : MonoBehaviour
             {
                 return;
             }
-
+            this.transform.rotation = new Quaternion(0, -90, 0, 0);
             if (MovementCheckerLeft.GetComponent<AllowMovementChecker>().getCanMove())
             {
                 move(new Vector3(-speed, 0, 0));
@@ -73,6 +75,7 @@ public class Movement : MonoBehaviour
 
             if (MovementCheckerRight.GetComponent<AllowMovementChecker>().getCanMove())
             {
+                this.transform.rotation = new Quaternion(0, , 0, 0);
                 move(new Vector3(speed, 0, 0));
             }
         }
@@ -80,6 +83,17 @@ public class Movement : MonoBehaviour
 
     public void move(Vector3 dir)
     {
-        transform.position = transform.position + dir;
+        if (canmove == true)
+        {
+            transform.position = transform.position + dir;
+            canmove = false;
+            StartCoroutine(movetimer());
+        }
+    }
+
+    public IEnumerator movetimer()
+    {
+        yield return new WaitForSeconds(0.1f);
+        canmove = true;
     }
 }
