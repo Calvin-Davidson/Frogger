@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,14 +10,14 @@ public class PlayerData : MonoBehaviour
     public int score = 0;
     public int bestscore = 0;
 
-    public int bestscoreEver = 0;
-
     public MapGenerator mapgen;
     public GameObject mapgeneratorObject;
 
     private void Start()
     {
         mapgen = mapgeneratorObject.GetComponent<MapGenerator>();
+
+        UpdateUI();
     }
 
     public void addScore(int amount)
@@ -25,10 +26,14 @@ public class PlayerData : MonoBehaviour
         if (score > bestscore)
         {
             bestscore = score;
-            PlayerPrefs.SetFloat("HighScore", score);
-            PlayerPrefs.Save();
             mapgen.CreateNewMap();
         }
+
+        if (score > PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
+
         UpdateUI();
     }
 
@@ -39,7 +44,7 @@ public class PlayerData : MonoBehaviour
 
     public void UpdateUI()
     {
-        GameObject.Find("HighScoreTekst").GetComponent<TextMeshProUGUI>().text = "HighScore: " + PlayerPrefs.GetFloat("HighScore");
+        GameObject.Find("HighScoreTekst").GetComponent<TextMeshProUGUI>().text = "HighScore: " + PlayerPrefs.GetInt("HighScore");
         GameObject.Find("ScoreTekst").GetComponent<TextMeshProUGUI>().text = "Score: " + score;
     }
 }

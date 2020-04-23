@@ -14,7 +14,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private GameObject MovementCheckerBack;
     [SerializeField] private GameObject MovementCheckerRight;
     [SerializeField] private GameObject MovementCheckerLeft;
-    
+
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject Model;
     private void Start()
     {
         playerData = this.gameObject.GetComponent<PlayerData>();
@@ -23,13 +25,14 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        animator.SetInteger("Walk", 0);
+        
         if (Input.GetKeyDown(KeyCode.W))
         {
             if (MovementCheckerFront.GetComponent<AllowMovementChecker>().getCanMove())
             {
                 move(new Vector3(0,0,speed));
                 playerData.addScore(1);
-                //camera.transform.position = camera.transform.position + new Vector3(0, 0, speed);   
             }
         }
 
@@ -43,11 +46,6 @@ public class Movement : MonoBehaviour
             if (MovementCheckerBack.GetComponent<AllowMovementChecker>().getCanMove())
             {
                 move(new Vector3(0, 0, -speed));
-                // if (!(camera.transform.position.z <= -35))
-                // {
-                //     camera.transform.position = camera.transform.position + new Vector3(0, 0, -speed);
-                // }
-
                 playerData.removeScore(1);
             }
         }
@@ -81,5 +79,6 @@ public class Movement : MonoBehaviour
     public void move(Vector3 dir)
     {
         transform.position = transform.position + dir;
+        animator.SetInteger("Walk", 1);
     }
 }

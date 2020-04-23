@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EndOfRoad
   - Obstakel
+  - Vehicle
   layers:
   - Default
   - TransparentFX

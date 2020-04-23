@@ -19,7 +19,7 @@ public class VehicleSpawner : MonoBehaviour
         yield return new WaitForSeconds(timer);
         GameObject vehicleObj = vehicles[UnityEngine.Random.Range(0, vehicles.Length)];
         Instantiate(vehicleObj, transform.position, vehicleObj.transform.rotation);
-        timer = UnityEngine.Random.Range(3f, 5f);
+        timer = UnityEngine.Random.Range(2f, 4f);
         StartCoroutine(spawner());
     }
 }
